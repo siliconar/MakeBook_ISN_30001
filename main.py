@@ -36,19 +36,19 @@ while start < total_length:
 
 
 #----------转录文本
-prompt = ""
-for i in range(index):
-    clip = os.path.join(work_folder, f"generative_ai_topics_{i}.mp3")
-    audio_file= open(clip, "rb")
-    transcript = openai.Audio.transcribe("whisper-1", audio_file, 
-                                     prompt=prompt)
-    # mkdir ./data/transcripts if not exists
-    if not os.path.exists("./data/transcripts"):
-        os.makedirs("./data/transcripts")
-    # write to file
-    with open(f"./data/transcripts/generative_ai_topics_{i}.txt", "w") as f:
-        f.write(transcript['text'])
-    # get last sentence of the transcript
-    sentences = transcript['text'].split("。")
-    prompt = sentences[-1]
+# prompt = ""
+# for i in range(index):
+#     clip = os.path.join(work_folder, f"generative_ai_topics_{i}.mp3")
+#     audio_file= open(clip, "rb")
+#     transcript = openai.Audio.transcribe("whisper-1", audio_file, 
+#                                      prompt=prompt)
+#     # mkdir ./data/transcripts if not exists
+#     if not os.path.exists("./data/transcripts"):
+#         os.makedirs("./data/transcripts")
+#     # write to file
+#     with open(f"./data/transcripts/generative_ai_topics_{i}.txt", "w") as f:
+#         f.write(transcript['text'])
+#     # get last sentence of the transcript
+#     sentences = transcript['text'].split("。")
+#     prompt = sentences[-1]
 
